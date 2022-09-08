@@ -1,10 +1,13 @@
+import { MitgliedAnlegenComponent } from './mitglied-anlegen/mitglied-anlegen.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { MitgliederlisteComponent } from './mitgliederliste/mitgliederliste.component';
 
 const routes: Routes = [{ path: '', component: HomeComponent },
-{ path: 'home', component: HomeComponent }];
+{ path: 'Mitglieder', component: MitgliederlisteComponent },
+{ path: 'Mitglied-anlegen', component: MitgliedAnlegenComponent },];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

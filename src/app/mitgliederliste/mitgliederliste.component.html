@@ -1,0 +1,17 @@
+<mat-card>
+
+<table>
+    <tr>
+        <th>Vorname</th>
+        <th>Nachname</th>
+        <th>E-Mail</th>
+    </tr>
+
+    <tr *ngFor="let mitglied of Liste" >
+        <td>{{mitglied.firstName}}</td>
+        <td>{{mitglied.lastName}}</td>
+        <td>{{mitglied.email}}</td>
+    </tr>
+</table>
+
+</mat-card>
