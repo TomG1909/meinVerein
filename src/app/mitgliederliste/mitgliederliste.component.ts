@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Mitglied } from 'src/models/mitglied.class';
+import { Mitglied } from 'src/model/Interface/mitglied.class';
 import { ApiService } from '../api.service';
 import { map } from 'rxjs/operators';
 
