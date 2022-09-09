@@ -13,13 +13,19 @@ import { Mitglied } from 'src/model/Interface/mitglied.class';
 
 
 export class ApiService {
-  url: string = 'https://dummyjson.com/users'
+  url_all: string = 'https://dummyjson.com/users'
   constructor(private HttpClient: HttpClient) {
 
   }
 
   getAllUsers(): Observable<Mitglied[]> {
-    return this.HttpClient.get<MitgliedModelServerResponse>(this.url)
+    return this.HttpClient.get<MitgliedModelServerResponse>(this.url_all)
+      .pipe(map(response => response.users))
+
+  }
+
+  getSingleUser(id: any): Observable<Mitglied[]> {
+    return this.HttpClient.get<MitgliedModelServerResponse>('https://dummyjson.com/users/' + id)
       .pipe(map(response => response.users))
 
   }

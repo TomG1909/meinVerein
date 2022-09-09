@@ -14,6 +14,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormBuilder, FormControl, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatButtonModule } from '@angular/material/button';
+import { DetailansichtComponent } from './detailansicht/detailansicht.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 
@@ -22,7 +28,8 @@ import { MatCardModule } from '@angular/material/card';
     AppComponent,
     HomeComponent,
     MitgliederlisteComponent,
-    MitgliedAnlegenComponent
+    MitgliedAnlegenComponent,
+    DetailansichtComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +41,12 @@ import { MatCardModule } from '@angular/material/card';
     MatFormFieldModule,
     FormsModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonModule,
+    MatMenuModule
 
 
   ],

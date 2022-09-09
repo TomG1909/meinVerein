@@ -1,5 +1,5 @@
 export class Mitglied {
-    id: number;
+    id: any;
     firstName: string;
     lastName: string;
     email: string;

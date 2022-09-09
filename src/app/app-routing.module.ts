@@ -1,3 +1,4 @@
+import { DetailansichtComponent } from './detailansicht/detailansicht.component';
 import { MitgliedAnlegenComponent } from './mitglied-anlegen/mitglied-anlegen.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -7,7 +8,8 @@ import { MitgliederlisteComponent } from './mitgliederliste/mitgliederliste.comp
 
 const routes: Routes = [{ path: '', component: HomeComponent },
 { path: 'Mitglieder', component: MitgliederlisteComponent },
-{ path: 'Mitglied-anlegen', component: MitgliedAnlegenComponent },];
+{ path: 'Mitglied-anlegen', component: MitgliedAnlegenComponent },
+{ path: 'Mitglieder/:id', component: DetailansichtComponent }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

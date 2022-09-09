@@ -1,16 +1,29 @@
 <mat-card>
 
-<table>
+<table class="member-list">
     <tr>
         <th>Vorname</th>
         <th>Nachname</th>
         <th>E-Mail</th>
+        <th>Geburtstag</th>
     </tr>
 
     <tr *ngFor="let mitglied of Liste" >
         <td>{{mitglied.firstName}}</td>
         <td>{{mitglied.lastName}}</td>
         <td>{{mitglied.email}}</td>
+        <td>{{mitglied.birthDate}}</td>
+        <div class="btn-container">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            </div>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item [routerLink]="['/Mitglieder/' + mitglied.id]">Details</button>
+                <button mat-menu-item>bearbeiten</button>
+                <button mat-menu-item>löschen</button>
+              </mat-menu>
+              
     </tr>
 </table>
 
