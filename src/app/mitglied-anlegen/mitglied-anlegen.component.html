@@ -1,53 +1,55 @@
+
+
+
 <div class="d-flex-center">
 
 <div class="contact-form">
     <h1>Neues Mitglied</h1>
+    
 <div>
     <div><mat-form-field class="width-50 pr-20" appearance="outline">
         <mat-label>Vorname</mat-label>
-        <input matInput>
+        <input [(ngModel)]="newUser.firstName" matInput>
       </mat-form-field>
     
 
       <mat-form-field class="width-50"appearance="outline">
         <mat-label>Name</mat-label>
-        <input matInput>
+        <input type="text" [(ngModel)]="newUser.lastName" matInput>
       </mat-form-field>
     </div>
 </div>
 <div>
   <mat-form-field class="full-width"appearance="outline">
     <mat-label>E-Mail</mat-label>
-    <input matInput>
+    <input type="email" [(ngModel)]="newUser.email" matInput>
   </mat-form-field>
 </div>
 <div class="d-flex">
   <mat-form-field class="pr-20" appearance="outline">
-    <mat-label>Geburtstag</mat-label>
-    <input matInput [matDatepicker]="picker">
-    <mat-hint>MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matSuffix [for]="picker">
-      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
-    </mat-datepicker-toggle>
+    <mat-label>Geburtsdatum</mat-label>
+    <input matInput [(ngModel)]="newUser.birthDate"[matDatepicker]="picker">
+    <mat-hint>MM/TT/JJJJ</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
-  
   <mat-form-field class="pr-20" appearance="outline">
     <mat-label>Geschlecht</mat-label>
     <select matNativeControl required>
-      <option value="volvo">keine Angabe</option>
-      <option value="saab">männlich</option>
-      <option value="mercedes">weiblich</option>
+      <option value="none">keine Angabe</option>
+      <option value="male">männlich</option>
+      <option value="female">weiblich</option>
     </select>
   </mat-form-field>
   <div>
-    <button class="button-save" mat-raised-button>
+    <button (click)="onSubmit()" class="button-save" mat-raised-button>
       <mat-icon>person_add_alt</mat-icon>
       anlegen
     </button>
   </div>
 </div>
 </div>
+
 
 
 

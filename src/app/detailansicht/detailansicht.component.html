@@ -1,35 +1,33 @@
 <mat-card class="user-detail-header">
-    <button mat-icon-button [matMenuTriggerFor]="editUser" class="pin-right-upper-corner">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-
-    <mat-menu #editUser="matMenu">
-        <button mat-menu-item >Edit</button>
-
-    </mat-menu>
-
-    <img src="">
+<div class="d-flex">
+    <img [src]="currentUser.image">
 
     <div class="user-details">
-       
+        <h2>{{currentUser.firstName}} {{currentUser.lastName}}</h2> 
+        <div>{{currentUser.email}}</div>
     </div>
-
+</div>
 </mat-card>
 
 <mat-card class="mt-32">
-    <button mat-icon-button [matMenuTriggerFor]="menu" class="pin-right-upper-corner">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item>Edit</button>
-
-    </mat-menu>
-
+    
     <mat-card-title>
-        Address
+    persönliche Angaben
     </mat-card-title>
     <mat-card-content>
-       
+       <div class="container-details">
+<div class="details-row">
+    <div class="col-1">Alter</div>
+    <div>{{currentUser.age}}</div>
+</div>
+<div class="details-row">
+    <div class="col-1">Geschlecht</div>
+    <div>{{currentUser.gender}}</div>
+</div>
+<div class="details-row">
+    <div class="col-1">Geburtstag</div>
+    <div>{{currentUser.birthDate}}</div>
+</div>
+       </div>
     </mat-card-content>
 </mat-card>

@@ -16,10 +16,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { DetailansichtComponent } from './detailansicht/detailansicht.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -46,11 +47,15 @@ import { MatMenuModule } from '@angular/material/menu';
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
+
 
 
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

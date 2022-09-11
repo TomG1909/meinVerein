@@ -1,3 +1,4 @@
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Mitglied } from 'src/model/Interface/mitglied.class';
@@ -9,9 +10,9 @@ import { ApiService } from '../api.service';
   styleUrls: ['./detailansicht.component.scss']
 })
 export class DetailansichtComponent implements OnInit {
-  Liste: Mitglied[] = [];
-  id: any;
 
+  id: any;
+  currentUser: Mitglied = new Mitglied();
 
   constructor(private api: ApiService, private route: ActivatedRoute) { }
 
@@ -27,10 +28,14 @@ export class DetailansichtComponent implements OnInit {
 
   getCurrentUser(id: any) {
     this.api.getSingleUser(id).subscribe(result => {
+      this.currentUser = result;
 
-
-      console.log('User', result);
+      console.log('current User', result);
     })
   }
 
+
 }
+
+
+

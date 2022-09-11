@@ -1,3 +1,4 @@
+
 import { MitgliedModelServerResponse } from './../model/Interface/serverResponse';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -13,7 +14,8 @@ import { Mitglied } from 'src/model/Interface/mitglied.class';
 
 
 export class ApiService {
-  url_all: string = 'https://dummyjson.com/users'
+  addedUsers: Mitglied[] = [];
+  url_all: string = 'https://dummyjson.com/users?limit=10&skip=92'
   constructor(private HttpClient: HttpClient) {
 
   }
@@ -24,9 +26,15 @@ export class ApiService {
 
   }
 
-  getSingleUser(id: any): Observable<Mitglied[]> {
-    return this.HttpClient.get<MitgliedModelServerResponse>('https://dummyjson.com/users/' + id)
-      .pipe(map(response => response.users))
+  getSingleUser(id: any): Observable<Mitglied> {
+    return this.HttpClient.get<Mitglied>('https://dummyjson.com/users/' + id)
+      .pipe(map(response => response))
+
+  }
+
+  addNewUser(newUser: Mitglied): Observable<any> {
+    return this.HttpClient.post('https://dummyjson.com/users/add', newUser)
+      .pipe(map(response => response))
 
   }
 }

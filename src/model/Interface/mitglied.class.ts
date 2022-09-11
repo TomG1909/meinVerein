@@ -5,6 +5,11 @@ export class Mitglied {
     email: string;
     birthDate: number;
     image: string;
+    gender: string;
+    age: string;
+
+
+
 
     constructor(obj?: any) {
         this.id = obj ? obj.id : '';
@@ -13,6 +18,9 @@ export class Mitglied {
         this.email = obj ? obj.email : '';
         this.birthDate = obj ? obj.birthDate : '';
         this.image = obj ? obj.image : '';
+        this.gender = obj ? obj.gender : '';
+        this.age = obj ? obj.age : '';
+
 
 
     }
