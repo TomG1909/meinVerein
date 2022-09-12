@@ -11,16 +11,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MitgliederlisteComponent } from './mitgliederliste/mitgliederliste.component';
 import { MitgliedAnlegenComponent } from './mitglied-anlegen/mitglied-anlegen.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormBuilder, FormControl, FormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { DetailansichtComponent } from './detailansicht/detailansicht.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MitgliedBearbeitenComponent } from './mitglied-bearbeiten/mitglied-bearbeiten.component';
 
 
 
@@ -30,7 +31,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     HomeComponent,
     MitgliederlisteComponent,
     MitgliedAnlegenComponent,
-    DetailansichtComponent
+    DetailansichtComponent,
+    MitgliedBearbeitenComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatNativeDateModule,
     MatButtonModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule
+
+
 
 
 

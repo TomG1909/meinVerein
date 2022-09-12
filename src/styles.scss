@@ -55,3 +55,32 @@ mat-card-title {
     background-color: #E67612 !important;
     ;
 }
+
+/*------------- Contact Form ------------------*/
+
+.contact-form {
+    width: 800px;
+    height: auto;
+    margin: 50px;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.button-save {
+    width: 200px;
+    padding: 10px;
+    background-color: #FA7D19;
+    color: white;
+
+    &:hover {
+        filter: brightness(1.2);
+    }
+}

@@ -15,6 +15,7 @@ import { Mitglied } from 'src/model/Interface/mitglied.class';
 
 export class ApiService {
   addedUsers: Mitglied[] = [];
+  Liste: Mitglied[] = [];
   url_all: string = 'https://dummyjson.com/users?limit=10&skip=92'
   constructor(private HttpClient: HttpClient) {
 
@@ -32,9 +33,24 @@ export class ApiService {
 
   }
 
-  addNewUser(newUser: Mitglied): Observable<any> {
+  addNewUser(newUser: any): Observable<any> {
     return this.HttpClient.post('https://dummyjson.com/users/add', newUser)
-      .pipe(map(response => response))
 
   }
+
+  updateUser(id: any, user: any): Observable<any> {
+    return this.HttpClient.put('https://dummyjson.com/users/' + id, user)
+
+  }
+
+
+
+  deleteUser(id: any) {
+    return this.HttpClient.delete('https://dummyjson.com/users/' + id)
+
+  }
+
+
+
+
 }

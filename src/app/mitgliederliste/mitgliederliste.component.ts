@@ -12,25 +12,29 @@ import { DetailansichtComponent } from '../detailansicht/detailansicht.component
   styleUrls: ['./mitgliederliste.component.scss']
 })
 export class MitgliederlisteComponent implements OnInit {
-  Liste: Mitglied[] = [];
 
   allUsers: any = []
 
-  constructor(private api: ApiService) { }
+  constructor(public api: ApiService) { }
 
   addedUsers = this.api.addedUsers;
+  Liste = this.api.Liste
 
   ngOnInit(): void {
 
     this.api.getAllUsers().subscribe(result => (this.Liste = result, console.log('Result', this.Liste)));
 
-    console.log('new added Users', this.api.addedUsers)
-
-
-
-
-
 
   }
+
+  deleteUser(id: any) {
+    this.api.deleteUser(id).subscribe((result: any) => {
+      console.log(result)
+    })
+  }
+
+
+
+
 
 }
