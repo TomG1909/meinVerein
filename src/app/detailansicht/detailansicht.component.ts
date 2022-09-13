@@ -14,6 +14,7 @@ export class DetailansichtComponent implements OnInit {
   id: any;
   currentUser: Mitglied = new Mitglied();
 
+
   constructor(private api: ApiService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {

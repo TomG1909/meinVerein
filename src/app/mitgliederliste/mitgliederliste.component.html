@@ -8,9 +8,25 @@
         <th>Geburtstag</th>
     </tr>
 
+    <tr *ngFor="let mitglied of addedUsers" >
+      <td>{{mitglied.firstName}}</td>
+      <td>{{mitglied.lastName}}</td>
+      <td>{{mitglied.email}}</td>
+      <td>{{mitglied.birthDate}}</td>
+      <div class="btn-container">
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          </div>
+          <mat-menu #menu="matMenu">
+              <button mat-menu-item [routerLink]="['/Mitglieder/' + mitglied.id]">Details</button>
+              <button mat-menu-item [routerLink]="['/Bearbeiten/' + mitglied.id]">bearbeiten</button>
+              <button mat-menu-item>löschen</button>
+            </mat-menu>
+            
+  </tr>
 
-
-    <tr *ngFor="let mitglied of Liste" >
+    <tr *ngFor="let mitglied of Liste, let i= index" >
         <td>{{mitglied.firstName}}</td>
         <td>{{mitglied.lastName}}</td>
         <td>{{mitglied.email}}</td>
@@ -28,23 +44,7 @@
               
     </tr>
 
-    <tr *ngFor="let mitglied of addedUsers" >
-        <td>{{mitglied.firstName}}</td>
-        <td>{{mitglied.lastName}}</td>
-        <td>{{mitglied.email}}</td>
-        <td>{{mitglied.birthDate}}</td>
-        <div class="btn-container">
-            <button mat-icon-button [matMenuTriggerFor]="menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            </div>
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item [routerLink]="['/Mitglieder/' + mitglied.id]">Details</button>
-                <button mat-menu-item [routerLink]="['/Bearbeiten/' + mitglied.id]">bearbeiten</button>
-                <button mat-menu-item>löschen</button>
-              </mat-menu>
-              
-    </tr>
+    
 </table>
 
 </mat-card>

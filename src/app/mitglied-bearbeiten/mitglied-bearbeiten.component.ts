@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class MitgliedBearbeitenComponent implements OnInit {
   currentUser: Mitglied = new Mitglied();
   id = this.route.snapshot.params['id']
-  updatedUsers = this.api.addedUsers;
+  addedUsers = this.api.addedUsers;
 
   constructor(private api: ApiService, private route: ActivatedRoute) { }
 
@@ -47,8 +47,17 @@ export class MitgliedBearbeitenComponent implements OnInit {
 
   updateUser() {
     this.api.updateUser(this.id, this.form.value).subscribe((result) => {
+      this.form = new FormGroup({
+        firstName: new FormControl(result['firstName']),
+        lastName: new FormControl(result['lastName']),
+        email: new FormControl(result['email']),
+        birthDate: new FormControl(result['birthDate']),
+        gender: new FormControl(result['gender']),
 
-      this.updatedUsers.push(result);
+
+
+      });
+      this.addedUsers.push(result)
       console.log(result)
     });
   }

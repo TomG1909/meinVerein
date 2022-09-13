@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, ReactiveFormsModule, NgForm } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, ReactiveFormsModule, NgForm, Validators } from '@angular/forms';
 import { Mitglied } from 'src/model/Interface/mitglied.class';
 import { ApiService } from '../api.service';
 
@@ -19,11 +19,13 @@ export class MitgliedAnlegenComponent implements OnInit {
 
 
 
+
   constructor(private api: ApiService, private fb: FormBuilder) { }
   form = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    email: new FormControl(''),
+    id: new FormControl(),
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
     birthDate: new FormControl(''),
     gender: new FormControl(''),
   });
@@ -39,7 +41,6 @@ export class MitgliedAnlegenComponent implements OnInit {
 
     this.api.addNewUser(this.form.value).subscribe(
       result => {
-        this.addedUser = result;
 
         this.api.addedUsers.push(result)
 

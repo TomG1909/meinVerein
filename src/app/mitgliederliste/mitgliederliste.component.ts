@@ -15,6 +15,7 @@ export class MitgliederlisteComponent implements OnInit {
 
   allUsers: any = []
 
+
   constructor(public api: ApiService) { }
 
   addedUsers = this.api.addedUsers;
@@ -22,13 +23,17 @@ export class MitgliederlisteComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.api.getAllUsers().subscribe(result => (this.Liste = result, console.log('Result', this.Liste)));
+    this.api.getAllUsers().subscribe(result => (
+      this.Liste = result
 
+    ));
 
   }
 
   deleteUser(id: any) {
     this.api.deleteUser(id).subscribe((result: any) => {
+
+      this.Liste.splice(result, 1)
       console.log(result)
     })
   }
