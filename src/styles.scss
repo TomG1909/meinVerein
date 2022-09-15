@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~ngx-toastr/toastr';
 
 html,
 body {
@@ -10,13 +11,16 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.content-container {
+    margin: 20px;
+}
+
+
 .full-width {
     width: 100%;
 }
 
-.width-50 {
-    width: 48.7%;
-}
+
 
 .pr-20 {
     padding-right: 18px;
@@ -82,5 +86,25 @@ mat-card-title {
 
     &:hover {
         filter: brightness(1.2);
+    }
+}
+
+.width-50 {
+    width: 48.7%;
+}
+
+
+
+@media(max-width: 800px) {
+    .contact-form {
+        width: 500px;
+    }
+
+    .d-flex {
+        flex-direction: column;
+    }
+
+    .width-50 {
+        width: 100%;
     }
 }

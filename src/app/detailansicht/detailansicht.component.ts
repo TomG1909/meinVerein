@@ -2,7 +2,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Mitglied } from 'src/model/Interface/mitglied.class';
-import { ApiService } from '../api.service';
+import { ApiService } from '../shared/api.service';
 
 @Component({
   selector: 'app-detailansicht',
@@ -19,14 +19,13 @@ export class DetailansichtComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id']
-
-
-
-    console.log('User ID', id)
     this.getCurrentUser(id)
 
   }
-
+  /**
+   * This function gets current User data from API by id
+   * @param id 
+   */
   getCurrentUser(id: any) {
     this.api.getSingleUser(id).subscribe(result => {
       this.currentUser = result;

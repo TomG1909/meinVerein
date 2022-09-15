@@ -1,5 +1,6 @@
 .mat-drawer-container {
-    height: 100vh;
+    height: calc(100vh - 64px);
+
 
     .logo-container {
         background-color: #022651;
@@ -40,10 +41,16 @@
             padding-left: 40px;
             height: 60px;
             cursor: pointer;
+            border-color: transparent;
 
             &:hover {
                 background-color: #FA7D19;
             }
+
+            &:focus-visible {
+                outline: none;
+            }
+
         }
     }
 }
@@ -51,7 +58,12 @@
 
 
 mat-toolbar {
-    background-color: #033672 !important;
+    background-color: #022651 !important;
+    color: white;
+
+    &:hover {
+        color: #FA7D19
+    }
 }
 
 .content-container {

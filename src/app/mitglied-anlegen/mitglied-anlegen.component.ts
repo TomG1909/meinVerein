@@ -1,14 +1,31 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, ReactiveFormsModule, NgForm, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Mitglied } from 'src/model/Interface/mitglied.class';
-import { ApiService } from '../api.service';
+import { ApiService } from '../shared/api.service';
+import { MAT_DATE_FORMATS } from '@angular/material/core';
+
+export const MY_DATE_FORMATS = {
+  parse: {
+    dateInput: 'DD/MM/YYYY',
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY',
+    monthYearLabel: 'MMMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM YYYY'
+  },
+};
 
 
 
 @Component({
   selector: 'app-mitglied-anlegen',
   templateUrl: './mitglied-anlegen.component.html',
-  styleUrls: ['./mitglied-anlegen.component.scss']
+  styleUrls: ['./mitglied-anlegen.component.scss'],
+  providers: [
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
+  ]
 })
 export class MitgliedAnlegenComponent implements OnInit {
   newUser: Mitglied = new Mitglied();
@@ -20,25 +37,29 @@ export class MitgliedAnlegenComponent implements OnInit {
 
 
 
-  constructor(private api: ApiService, private fb: FormBuilder) { }
+  constructor(private api: ApiService, private toastr: ToastrService) { }
   form = new FormGroup({
     id: new FormControl(),
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
     birthDate: new FormControl(''),
     gender: new FormControl(''),
+
+
+
+
   });
 
 
   ngOnInit(): void {
 
-
-
   }
+
+  /**
+   * This function adds a new created User via POST request and pushes data into Array
+   */
   addNewUser() {
-
-
     this.api.addNewUser(this.form.value).subscribe(
       result => {
 
@@ -51,6 +72,8 @@ export class MitgliedAnlegenComponent implements OnInit {
       }
 
     )
+
+    this.api.successMessage('Das Mitglied wurde erfolgreich angelegt!')
   }
 
 

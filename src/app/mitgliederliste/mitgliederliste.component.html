@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="content-container">
 
 <table class="member-list">
     <tr>
@@ -39,7 +39,7 @@
             <mat-menu #menu="matMenu">
                 <button mat-menu-item [routerLink]="['/Mitglieder/' + mitglied.id]">Details</button>
                 <button mat-menu-item [routerLink]="['/Bearbeiten/' + mitglied.id]">bearbeiten</button>
-                <button mat-menu-item (click)="deleteUser(mitglied.id)">löschen</button>
+                <button mat-menu-item (click)="deleteUser(mitglied.id)" class="color-item">löschen</button>
               </mat-menu>
               
     </tr>

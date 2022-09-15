@@ -41,7 +41,7 @@
         </select>
       </mat-form-field>
       <div>
-        <button type="submit" class="button-save" mat-raised-button>
+        <button [disabled]="!(form.valid && (form.dirty || form.touched))" type="submit" class="button-save" mat-raised-button>
           <mat-icon>person_add_alt</mat-icon>
           anlegen
         </button>
