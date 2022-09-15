@@ -15,13 +15,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { DetailansichtComponent } from './detailansicht/detailansicht.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MitgliedBearbeitenComponent } from './mitglied-bearbeiten/mitglied-bearbeiten.component';
 import { ToastrModule } from 'ngx-toastr';
+import { DialogComponent } from './dialog/dialog.component';
+
 
 
 
@@ -31,7 +33,8 @@ import { ToastrModule } from 'ngx-toastr';
     MitgliederlisteComponent,
     MitgliedAnlegenComponent,
     DetailansichtComponent,
-    MitgliedBearbeitenComponent
+    MitgliedBearbeitenComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -59,9 +62,11 @@ import { ToastrModule } from 'ngx-toastr';
 
 
 
+
+
   ],
   providers: [
-
+    { provide: MAT_DATE_LOCALE, useValue: 'de-DE' },
   ],
   bootstrap: [AppComponent]
 })

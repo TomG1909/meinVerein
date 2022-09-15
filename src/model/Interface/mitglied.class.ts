@@ -3,7 +3,7 @@ export class Mitglied {
     firstName: string;
     lastName: string;
     email: string;
-    birthDate: string;
+    birthDate: any;
     image: string;
     gender: string;
     age: string;

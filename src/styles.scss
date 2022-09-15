@@ -60,6 +60,56 @@ mat-card-title {
     ;
 }
 
+/*------------- costumized Dialog ------------*/
+mat-dialog-container {
+    position: relative;
+}
+
+.dialog-container {
+    border-radius: 10px;
+
+    .text-color {
+        color: black;
+    }
+
+    #close-btn {
+        color: rgba(0, 0, 0, 0.5);
+        margin-left: auto;
+        order: 2;
+        font-weight: bolder;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        cursor: pointer;
+    }
+
+    #no-button {
+        height: 50px;
+        width: 50%;
+        background-color: #E67612;
+        color: white !important;
+        border-radius: 0px;
+        border-color: white;
+    }
+
+
+    #yes-button {
+        height: 50px;
+        width: 50%;
+        background-color: white;
+        color: #E67612 !important;
+        border-radius: 0px;
+        border-color: #E67612;
+
+    }
+
+    .dialog-content {
+        margin: 20px;
+        color: white;
+        display: flex;
+    }
+}
+
 /*------------- Contact Form ------------------*/
 
 .contact-form {

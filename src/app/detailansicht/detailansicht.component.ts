@@ -29,8 +29,6 @@ export class DetailansichtComponent implements OnInit {
   getCurrentUser(id: any) {
     this.api.getSingleUser(id).subscribe(result => {
       this.currentUser = result;
-
-      console.log('current User', result);
     })
   }
 

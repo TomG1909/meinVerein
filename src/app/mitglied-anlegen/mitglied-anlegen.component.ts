@@ -1,21 +1,12 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, ReactiveFormsModule, NgForm, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Mitglied } from 'src/model/Interface/mitglied.class';
 import { ApiService } from '../shared/api.service';
-import { MAT_DATE_FORMATS } from '@angular/material/core';
 
-export const MY_DATE_FORMATS = {
-  parse: {
-    dateInput: 'DD/MM/YYYY',
-  },
-  display: {
-    dateInput: 'DD/MM/YYYY',
-    monthYearLabel: 'MMMM YYYY',
-    dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MMMM YYYY'
-  },
-};
+
+
 
 
 
@@ -23,13 +14,13 @@ export const MY_DATE_FORMATS = {
   selector: 'app-mitglied-anlegen',
   templateUrl: './mitglied-anlegen.component.html',
   styleUrls: ['./mitglied-anlegen.component.scss'],
-  providers: [
-    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
-  ]
+
 })
 export class MitgliedAnlegenComponent implements OnInit {
   newUser: Mitglied = new Mitglied();
   addedUser!: Mitglied;
+
+
 
   Liste = this.api.Liste
   addedUsers = this.api.addedUsers;
@@ -37,7 +28,10 @@ export class MitgliedAnlegenComponent implements OnInit {
 
 
 
+
   constructor(private api: ApiService, private toastr: ToastrService) { }
+
+
   form = new FormGroup({
     id: new FormControl(),
     firstName: new FormControl('', Validators.required),
@@ -60,6 +54,7 @@ export class MitgliedAnlegenComponent implements OnInit {
    * This function adds a new created User via POST request and pushes data into Array
    */
   addNewUser() {
+
     this.api.addNewUser(this.form.value).subscribe(
       result => {
 
@@ -67,16 +62,11 @@ export class MitgliedAnlegenComponent implements OnInit {
 
         console.log('newUser', this.api.addedUsers)
 
-        localStorage.setItem("all new Users", JSON.stringify(this.api.addedUsers));
-
       }
 
     )
 
     this.api.successMessage('Das Mitglied wurde erfolgreich angelegt!')
   }
-
-
-
 
 }

@@ -53,7 +53,7 @@ export class ApiService {
   }
   /**
    * 
-   * @param id - user id
+   * @param {number} id - user id
    * @param user - updated data for the user
    * @returns - HTTP PUT Request response
    */
@@ -63,16 +63,16 @@ export class ApiService {
   }
   /**
    * 
-   * @param id - user id
+   * @param {number} id - user id
    * @returns HTTP Delete Request response
    */
-  deleteUser(id: any) {
+  deleteUser(id: number) {
     return this.HttpClient.delete('https://dummyjson.com/users/' + id)
 
   }
   /**
    * 
-   * @param msg - Message for the alert
+   * @param {string} msg - Message for the alert
    */
   successMessage(msg: string) {
     this.toastr.success(msg)
